@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2018.12.06실습</title>
+    <style media="screen">
+      *{margin: 0; padding: 0;}
+      section{height: 600px; background-color: skyblue; text-align: center;}
+      article{width: 500px; height: 250px;
+      display: inline-block; background-color: black;
+      margin: 30px auto 0 auto;
+      position: relative;}
+      article img{position: absolute; top: 0px;
+      left: 0px; display: none; width: 500px; height: 250px;}
+      #B_bt{width: 200px; height: 150px;}
+      #N_bt{Width: 200px; height: 150px;}
+      #b1{text-align: center;}
+      #p0{margin-right: 200px;}
+      #p1{margin-left: 200px;}
+
+
+    </style>
+  </head>
+  <body>
+    <div id="b1">
+      <b>2018.12.06 git 실습</b>
+    </div>
+    <section>
+      <article class="">
+        <img id="img01" src="image01.jpg" alt="">
+        <img id="img02" src="image02.jpg" alt="">
+        <img id="img03" src="image03.jpg" alt="">
+        <img id="img04" src="image04.jpg" alt="">
+        <img id="img05" src="image05.jpg" alt="">
+      </article>
+      <br>
+      <img id="B_bt" src="back.png" alt="">
+      <img id="N_bt" src="next.png" alt="">
+      <div id="p0">
+        <p>이전 이미지</p>
+      </div>
+      <div id="p1">
+        <p>다음 이미지</p>
+      </div>
+    </section>
+    <script>
+    var B_bt = document.getElementById('B_bt');
+    var N_bt = document.getElementById('N_bt');
+
+    var img01 = document.getElementById('img01');
+    var img02 = document.getElementById('img02');
+    var img03 = document.getElementById('img03');
+    var img04 = document.getElementById('img04');
+    var img05 = document.getElementById('img05');
+
+    var count = 1;
+
+    imgview();
+
+    N_bt.addEventListener('click',function(){
+      console.log(count);
+      if(count<5){
+        count++;
+        imgview();
+      }
+    })
+
+    B_bt.addEventListener('click' , function(){
+      console.log(count);
+      if(count>1){
+        count--;
+        imgview();
+      }
+    })
+    function imgview() {
+      img01.style.display = 'none';
+      img02.style.display = 'none';
+      img03.style.display = 'none';
+      img04.style.display = 'none';
+      img05.style.display = 'none';
+
+      if(count==1){
+        img01.style.display = 'block';
+      }else if (count==2) {
+        img02.style.display = 'block';
+      }else if (count==3) {
+        img03.style.display = 'block';
+      }else if (count==4) {
+        img04.style.display = 'block';
+      }else if (count==5) {
+        img05.style.display = 'block';
+      }
+    }
+
+    </script>
+  </body>
+</html>
